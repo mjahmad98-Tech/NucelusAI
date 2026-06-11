@@ -1,0 +1,306 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════
+   NUCLEUSAI DESIGN SYSTEM
+   Grey · Blue · Pink · Futuristic Academic
+═══════════════════════════════════════════ */
+
+:root {
+  /* Core palette */
+  --bg-deep:        #060B18;
+  --bg-base:        #0A1020;
+  --bg-surface:     #0F1829;
+  --bg-elevated:    #141E35;
+  --bg-glass:       rgba(15, 24, 41, 0.6);
+
+  /* Grey */
+  --grey-900: #1A2235;
+  --grey-700: #3A4A6B;
+  --grey-500: #6B7A99;
+  --grey-300: #9BAAC4;
+  --grey-100: #C8D3E8;
+
+  /* Blue */
+  --blue-900: #0D2452;
+  --blue-700: #1A4080;
+  --blue-500: #2E6FCC;
+  --blue-400: #4D8FE8;
+  --blue-300: #7AB0F5;
+  --blue-100: #C2D8FC;
+  --blue-glow: rgba(46, 111, 204, 0.4);
+
+  /* Pink */
+  --pink-900: #3D1040;
+  --pink-700: #7A1E7A;
+  --pink-500: #C040C0;
+  --pink-400: #D966D9;
+  --pink-300: #EE99EE;
+  --pink-100: #F8D6F8;
+  --pink-glow: rgba(192, 64, 192, 0.35);
+
+  /* Accent glow combo */
+  --glow-blue:  0 0 20px rgba(46, 111, 204, 0.5), 0 0 60px rgba(46, 111, 204, 0.2);
+  --glow-pink:  0 0 20px rgba(192, 64, 192, 0.5), 0 0 60px rgba(192, 64, 192, 0.2);
+  --glow-combo: 0 0 30px rgba(46, 111, 204, 0.3), 0 0 60px rgba(192, 64, 192, 0.2);
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans:  var(--font-inter, 'Inter', system-ui, sans-serif);
+  --font-mono:  var(--font-geist-mono, 'JetBrains Mono', monospace);
+
+  /* Glass */
+  --glass-bg:     rgba(15, 24, 41, 0.55);
+  --glass-border: rgba(100, 140, 220, 0.15);
+  --glass-blur:   blur(16px);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-deep);
+  color: #E8EDF8;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+/* Force strong contrast on all text */
+p, span, li, label, div { color: inherit; }
+h1, h2, h3, h4, h5, h6 { color: #FFFFFF; }
+
+/* ═══════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════ */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--grey-700);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--blue-500); }
+
+/* ═══════════════════════════════════════════
+   GLASS MORPHISM
+═══════════════════════════════════════════ */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-strong {
+  background: rgba(10, 16, 32, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(100, 140, 220, 0.2);
+}
+
+/* ═══════════════════════════════════════════
+   GLOW EFFECTS
+═══════════════════════════════════════════ */
+.glow-blue { box-shadow: var(--glow-blue); }
+.glow-pink { box-shadow: var(--glow-pink); }
+.glow-combo { box-shadow: var(--glow-combo); }
+
+.text-glow-blue { text-shadow: 0 0 20px rgba(77, 143, 232, 0.8); }
+.text-glow-pink { text-shadow: 0 0 20px rgba(217, 102, 217, 0.8); }
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════ */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes stream-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes typing-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30%           { transform: translateY(-6px); opacity: 1; }
+}
+
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes helix-rotate {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+
+@keyframes badge-pop {
+  0%   { opacity: 0; transform: scale(0.7) translateY(4px); }
+  70%  { transform: scale(1.05) translateY(-1px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes border-glow-pulse {
+  0%, 100% { border-color: rgba(46, 111, 204, 0.2); }
+  50%       { border-color: rgba(46, 111, 204, 0.5); }
+}
+
+.animate-fade-in        { animation: fadeIn 0.4s ease forwards; }
+.animate-fade-in-scale  { animation: fadeInScale 0.5s ease forwards; }
+.animate-float          { animation: float 4s ease-in-out infinite; }
+.animate-pulse-glow     { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-spin-slow      { animation: spin-slow 12s linear infinite; }
+.animate-stream-in      { animation: stream-in 0.15s ease forwards; }
+.animate-badge-pop      { animation: badge-pop 0.35s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+.animate-border-glow    { animation: border-glow-pulse 3s ease-in-out infinite; }
+
+/* Typing indicator dots */
+.typing-dot:nth-child(1) { animation: typing-dot 1.2s ease-in-out 0.0s infinite; }
+.typing-dot:nth-child(2) { animation: typing-dot 1.2s ease-in-out 0.2s infinite; }
+.typing-dot:nth-child(3) { animation: typing-dot 1.2s ease-in-out 0.4s infinite; }
+
+/* ═══════════════════════════════════════════
+   GRADIENT TEXT
+═══════════════════════════════════════════ */
+.gradient-text {
+  background: linear-gradient(135deg, var(--blue-300) 0%, var(--pink-300) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #7AB0F5 0%, #4D8FE8 50%, #C040C0 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════════
+   GRID BACKGROUND
+═══════════════════════════════════════════ */
+.neural-grid {
+  background-image:
+    linear-gradient(rgba(46, 111, 204, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 111, 204, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ═══════════════════════════════════════════
+   PROSE / MARKDOWN
+═══════════════════════════════════════════ */
+.prose-nucleus {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #E8EDF8;
+}
+.prose-nucleus h1, .prose-nucleus h2, .prose-nucleus h3 {
+  font-family: var(--font-serif);
+  color: white;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+.prose-nucleus p { margin-bottom: 0.875em; }
+.prose-nucleus code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: rgba(46, 111, 204, 0.15);
+  border: 1px solid rgba(46, 111, 204, 0.2);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  color: var(--blue-300);
+}
+.prose-nucleus pre {
+  background: rgba(6, 11, 24, 0.8);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 1em;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+.prose-nucleus pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--grey-100);
+}
+.prose-nucleus ul, .prose-nucleus ol {
+  padding-left: 1.5em;
+  margin-bottom: 0.875em;
+}
+.prose-nucleus li { margin-bottom: 0.25em; }
+.prose-nucleus strong { color: white; font-weight: 600; }
+.prose-nucleus em { color: var(--pink-300); font-style: italic; }
+.prose-nucleus a { color: var(--blue-300); text-decoration: underline; }
+.prose-nucleus blockquote {
+  border-left: 3px solid var(--blue-500);
+  padding-left: 1em;
+  color: var(--grey-300);
+  margin: 1em 0;
+}
+.prose-nucleus table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.875em;
+}
+.prose-nucleus th {
+  background: rgba(46, 111, 204, 0.15);
+  padding: 0.5em 0.75em;
+  text-align: left;
+  border: 1px solid var(--glass-border);
+  color: var(--blue-300);
+  font-weight: 600;
+}
+.prose-nucleus td {
+  padding: 0.5em 0.75em;
+  border: 1px solid var(--glass-border);
+}
+.prose-nucleus hr {
+  border: none;
+  border-top: 1px solid var(--glass-border);
+  margin: 1.5em 0;
+}
+
+/* ═══════════════════════════════════════════
+   SELECTION
+═══════════════════════════════════════════ */
+::selection {
+  background: rgba(46, 111, 204, 0.3);
+  color: white;
+}
